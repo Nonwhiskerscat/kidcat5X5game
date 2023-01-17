@@ -1,3 +1,6 @@
+@charset "UTF-8";
+/*=================중단점=================*/
+/*=================여백=================*/
 @keyframes opacity-remove {
   0% {
     opacity: 0;
@@ -17,7 +20,7 @@
     opacity: 1;
   }
 }
-@keyframes shadow {
+@keyframes offset_letter {
   0% {
     left: 0;
   }
@@ -25,7 +28,7 @@
     left: 0;
   }
   100% {
-    left: -6px;
+    left: -0.1em;
   }
 }
 @keyframes opacity-btn {
@@ -64,5 +67,27 @@
   }
   100% {
     background-color: transparent;
+  }
+}
+@keyframes kitty_illust_ani {
+  100% {
+    transform: rotateX(0);
+  }
+}
+@keyframes kitty_head_ani {
+  0% {
+    transform: rotateZ(0);
+  }
+  25% {
+    transform: rotateZ(-7deg);
+  }
+  50% {
+    transform: rotateZ(0);
+  }
+  75% {
+    transform: rotateZ(7deg);
+  }
+  100% {
+    transform: rotateZ(0deg);
   }
 }

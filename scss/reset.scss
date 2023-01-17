@@ -1,7 +1,10 @@
+@import './style.scss';
+@import './mixin.scss';
+
 * {
     padding: 0px;
     margin: 0px;
-    border: 0px;
+    box-sizing: border-box;
 }
 
 *,
@@ -10,6 +13,21 @@
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
+}
+
+.nyan_zone {
+    margin: 0 auto;
+    position: relative;
+    width: 95%;
+
+    @include responsive(tablet-cat) {
+        width: 96.35416666666667%;
+    }
+
+    @include responsive(semi-cat) {
+        width: 100%;
+        max-width: 1380px;
+    }
 }
 
 aside,
@@ -33,6 +51,7 @@ input::-ms-clear {
 
 button {
     cursor: pointer;
+    border: 0;
 }
 
 button::-moz-focus-inner {

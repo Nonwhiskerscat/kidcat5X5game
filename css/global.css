@@ -1,3 +1,6 @@
+@charset "UTF-8";
+/*=================중단점=================*/
+/*=================여백=================*/
 @keyframes opacity-remove {
   0% {
     opacity: 0;
@@ -17,7 +20,7 @@
     opacity: 1;
   }
 }
-@keyframes shadow {
+@keyframes offset_letter {
   0% {
     left: 0;
   }
@@ -25,7 +28,7 @@
     left: 0;
   }
   100% {
-    left: -6px;
+    left: -0.07em;
   }
 }
 @keyframes opacity-btn {
@@ -66,10 +69,42 @@
     background-color: transparent;
   }
 }
+@keyframes kitty_head_ani {
+  0% {
+    transform: rotateZ(0);
+  }
+  25% {
+    transform: rotateZ(-7deg);
+  }
+  50% {
+    transform: rotateZ(0);
+  }
+  75% {
+    transform: rotateZ(7deg);
+  }
+  100% {
+    transform: rotateZ(0deg);
+  }
+}
+html {
+  overflow: overlay;
+}
+html::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px #e87d9e;
+  border-radius: 8px;
+}
+html::-webkit-scrollbar {
+  width: 8px;
+}
+html::-webkit-scrollbar-thumb {
+  background: rgb(31, 31, 31);
+  border-radius: 8px;
+  background-image: -webkit-linear-gradient(-90deg, transparent 0%, transparent 5%, #e87d9e 5%, #e87d9e 15%, transparent 15%, transparent 20%, #e87d9e 20%, #e87d9e 30%, transparent 30%, transparent);
+}
+
 body {
   position: relative;
   width: 100vw;
-  height: 100vh;
   background-color: #000620;
   font-family: "ImcreSoojin", sans-serif;
   font-weight: 400;

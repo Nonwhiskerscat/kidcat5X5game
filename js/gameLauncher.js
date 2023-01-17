@@ -20,6 +20,8 @@ window.addEventListener('load', ()=> {
             this.kitty = [];
         }
     }
+
+    illustAni();
     
     const cellData = new Kidcat([]);
     
@@ -32,8 +34,13 @@ window.addEventListener('load', ()=> {
     ];
 
     nyanMaker(25);
+
+    let svgKitty=document.querySelector('.svg_kitty');
+
+    kittySvg(svgKitty);
     
-    let startGame = document.querySelector("#start_btn");
+    let startBtn = document.querySelector("#start_btn");
+    let kidcatBtn = document.querySelector('#kidcat_btn');
     let nyanBtns = document.querySelectorAll(".nyan");
     let retryBtn = document.querySelector("#retry_btn");
     let giveupBtn = document.querySelector('#giveup_btn');
@@ -43,8 +50,12 @@ window.addEventListener('load', ()=> {
     let isTaken;
 
 
-    startGame.addEventListener('click', ()=>{
+    startBtn.addEventListener('click', ()=>{
         settingGame(cat_page)
+    });
+
+    kidcatBtn.addEventListener('click', ()=>{
+        window.open("https://github.com/Nonwhiskerscat");
     });
 
     retryBtn.addEventListener('click', retryGame);
@@ -52,7 +63,6 @@ window.addEventListener('load', ()=> {
     giveupBtn.addEventListener('click', () => {
         retryGame();
         giveupGame(cat_page);
-
     })
 
 
@@ -173,9 +183,9 @@ window.addEventListener('load', ()=> {
         icon.classList.add("fi");
 
         if (catWin) {
-            icon.classList.add("fi", "fi-rs-cross", "icon-cross");
+            icon.classList.add("fi", "fi-rs-cross", "icon_cross");
         } else {
-            icon.classList.add("fi", "fi-rs-circle", "icon-circle");
+            icon.classList.add("fi", "fi-rs-circle", "icon_circle");
         }
 
         return icon;

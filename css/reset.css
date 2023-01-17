@@ -1,7 +1,12 @@
+@charset "UTF-8";
+/*=================중단점=================*/
+/*=================여백=================*/
+/*=================중단점=================*/
+/*=================여백=================*/
 * {
   padding: 0px;
   margin: 0px;
-  border: 0px;
+  box-sizing: border-box;
 }
 
 *,
@@ -10,6 +15,23 @@
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
+}
+
+.nyan_zone {
+  margin: 0 auto;
+  position: relative;
+  width: 95%;
+}
+@media screen and (min-width: 768px) {
+  .nyan_zone {
+    width: 96.3541666667%;
+  }
+}
+@media screen and (min-width: 1400px) {
+  .nyan_zone {
+    width: 100%;
+    max-width: 1380px;
+  }
 }
 
 aside,
@@ -33,6 +55,7 @@ input::-ms-clear {
 
 button {
   cursor: pointer;
+  border: 0;
 }
 
 button::-moz-focus-inner {

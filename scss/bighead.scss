@@ -1,71 +1,378 @@
 @import './style.scss';
+@import './mixin.scss';
 
-.bighead {
+.under_320 {
+
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
+    min-height: 100vh;
 
-    width: 100vw;
-    height: 100vh;
+    @include responsive(mobile-cat) {
+        display: none;
+    }
+    
+    .under_320_contents {
+        text-align: center;
+    
+    
+        h2 {
+            font-size: calc(2px + 10vw);
+            color: $personal;
+        }
+    
+        .img_320 {
+            width: 50%;
+            margin: 0 auto;
+            transform: translateX(10%);
+
+        img {
+            display: block;
+            width: 100%;
+            margin-top: 15px;
+        }
+
+        }
+
+        p {
+        font-size: calc(2px + 6vw);
+        color: white;
+        line-height: 1.5em;
+        margin-top: 20px;
+        }
+    }
+
 }
 
+.bighead {
+    
+    display: none;
+
+    @include responsive(mobile-cat) {
+        display: block;
+        text-align: center;
+        width: 100%;
+        overflow: hidden;
+    }
+
+    @include responsive(tablet-cat) {
+        min-height: 100vh;
+
+    }
+
+
+    .intro_flex {
+        display: flex;
+        flex-direction: column;
+
+        @include responsive(tablet-cat) {
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        @include responsive(semi-cat) {
+
+        }
+    }
+
+    .title_area {
+        margin-top: $mezo_margin_p;
+        color: $personal;
+
+        @include responsive(tablet-cat) {
+            width: 40%;
+            margin-top: $big_margin_t;
+
+        }
+
+        @include responsive(semi-cat) {
+            width: 580px;
+            margin-top: $big_margin_p;
+        }
+
+        .h1_flex {
+            display: flex;
+            align-items: center;
+            width: fit-content;
+            margin: 0 auto;
+
+            @include responsive(semi-cat) {
+                margin-left: 0;
+            }
+    
+            .bighead_title { 
+                position: relative;
+                font-family: 'ImcreSoojin';
+                font-size: calc(24px + 6vw);
+                margin-right: $tiny_margin_p;
+                animation: opacity-title 1.5s ease-out 0s 1 normal forwards;
+
+                @include responsive(tablet-cat) {
+                    font-size: calc(24px + 4vw);
+                }
+        
+                @include responsive(semi-cat) {
+                    font-size: 80px;
+                }
+    
+                &::after {
+                    @include offset_letter_ani("KIDCAT", $second);
+                }
+            }
+        
+            .svg_kitty {
+        
+                svg {
+        
+                    height: calc(24px + 6vw);
+                    animation: opacity-title 1.5s ease-out 0s 1 normal forwards;
+
+                    @include responsive(tablet-cat) {
+                        height: calc(24px + 4vw);
+                    }
+
+                    @include responsive(semi-cat) {
+                        height: 80px;
+                    }
+        
+                    path {
+                        fill: $personal;
+
+
+                        
+                    }
+        
+                    polygon {
+                        fill: $personal;
+                    }
+                }
+            }
+    
+        }
+    
+        .bighead_semi_title {
+            width: fit-content;
+            margin: 0 auto;
+            position: relative;
+            font-family: 'ImcreSoojin';
+            font-size: calc(22px + 4vw);
+            margin-top: $tiny_margin_p;
+            animation: opacity-title 1.5s ease-out 0s 1 normal forwards;
+
+            @include responsive(tablet-cat) {
+                margin-top: $tiny_margin_t;
+                font-size: calc(18px + 2vw);
+            }
+
+            @include responsive(semi-cat) {
+                margin-top: $tiny_margin_h;
+                font-size: 54px;
+                margin-right: 0;
+            }
+
+            &::after {
+                @include offset_letter_ani("5X5 TIC TAC TOE", $second);
+            }
+        }
+    }
+
+
+
+    .illust_area {
+        transform-origin: center bottom;
+        margin-top: $big_margin_p;
+        position: relative;
+        width: 100%;
+        min-height: calc(200px + 80vw);
+
+        @include responsive(tablet-cat) {
+            margin-top: 0;
+            width: 60%;
+            min-height: 100vh;
+        }
+
+        @include responsive(semi-cat) {
+            width: 780px;
+        }
+
+        .illusts {
+            bottom: 0;
+
+            &>img {
+                display: block;
+                position: absolute;
+                z-index: 2;
+
+                &.window {
+                    width: 45%;
+                    top: 3%;
+                    left: 20%;
+                }
+
+                &.pf1 {
+                    width: 15%;
+                    top: 3%;
+                    right: 15%;
+                }
+
+                &.pf2 {
+                    width: 10%;
+                    top: 12%;
+                    right: 3%;
+                }
+
+                &.stools {
+                    width: 25%;
+                    bottom: 3%;
+                };
+
+                &.plant {
+                    width: 20%;
+                    bottom: 3%;
+                    right: 0;
+                }
+            }
+
+            .kitty_stools {
+                position: absolute;
+                bottom: 3%;
+                left: 50%;
+                width: 50%;
+                transform: translateX(-40%);
+                z-index: 2;
+
+
+                img {
+                    width: 100%;
+                    display: block;
+
+                    &:last-child {
+                        width: 30%;
+                        position: absolute;
+                        top: 20%;
+                        left: 12%;
+                        transform-origin: center bottom;
+
+                        animation: kitty_head_ani 5s infinite linear;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
 .bighead_board {
-    height: 100vh;
     animation: opacity-title 1.7s ease-out 0s 1 normal forwards;
 }
 
-.bighead_title { 
-    position: relative;
-    margin-bottom: 7rem;
-    font-family: 'ImcreSoojin';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 7em;
-    color: $personal;
+.btn_grp {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0 auto;
+    margin-top: $mezo_margin_p;
 
-    animation: opacity-title 1.5s ease-out 0s 1 normal forwards;
+    @include responsive(m500-cat) {
+        flex-direction: row;
+        justify-content: space-between;
+        width: 90%;
+    }
+
+    @include responsive(tablet-cat) {
+        flex-direction: column;
+        justify-content:baseline;
+    }
+
+    @include responsive(t1080-cat) {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    @include responsive(pc-cat) {
+        margin-top: $mezo_margin_h;
+    }
+
 }
-
-
-.bighead_title::after {
-    content: "KIDCAT";
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    z-index: -1;
-    color: #c9c48d;
-
-    animation: shadow 2.2s ease-out 0s 1 normal forwards;
-}
-
 
 .button {
-    padding: 1.3rem 2.3rem;
+    opacity: 0;
     font-family: 'ImcreSoojin';
     font-style: normal;
-    font-weight: 400;
-    font-size: 1.5em;
     line-height: 23px;
-    color: #fff;
-
-    opacity: 0;
-    background-color: $second;
-    border: none;
-    border-radius: .5em;
+    color: $personal;
+    padding: 0.5em;
+    font-size: calc(12px + 2vw);
+    background-color: transparent;
+    border: 3px solid $personal;
+    border-radius: 1000px;
     cursor: pointer;
     transition: background-color .1s linear, transform .1s linear;
     animation: opacity-btn 2s ease 0s 1 normal forwards;
+
+    @include responsive(m500-cat) {
+        width: 45%;
+        font-size: calc(12px + 3vw);
+    }
+
+    @include responsive(tablet-cat) {
+        width: 100%;
+        font-size: calc(12px + 1vw);
+
+    }
+
+    @include responsive(t1080-cat) {
+        width: 45%;
+        padding: 0.75em;
+        font-size: calc(10px + 1vw);
+    }
+
+    @include responsive(semi-cat) {
+        font-size: 28px;
+
+    }
+
+    &:nth-child(n+2) {
+        margin-top: $small_margin_p;
+
+        @include responsive(m500-cat) {
+            margin-top: 0;
+        }
+
+        @include responsive(tablet-cat) {
+            margin-top: $small_margin_p;
+        }
+
+        @include responsive(t1080-cat) {
+            margin-top: 0;
+        }
+    }
+
+    &:hover {
+        background-color: $personal;
+        transition: all .5s linear;
+        color: $background;
+    }
+    
+    
+    &:active {
+        background-color: $second;
+    }
+    
+}
+
+.bottom {
+    display: none;
+
+    @include responsive(mobile-cat) {
+        position: absolute;
+        bottom: 0;
+        display: block;
+        width: 100%;
+        height: 50px;
+        background-color: $personal;
+    }
+
 }
 
 
-.button:hover {
-    background-color: #df4878;
-    transition: all .1s linear;
-}
-
-
-.button:active {
-    background-color: $second;
-}

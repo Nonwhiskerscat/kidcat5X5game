@@ -1,15 +1,46 @@
 @import "./animation.scss";
 
+html {
+    overflow: overlay;
+
+    &::-webkit-scrollbar-track
+    {
+        -webkit-box-shadow: inset 0 0 6px #e87d9e;
+        border-radius: 8px;
+    }
+
+    &::-webkit-scrollbar
+    {
+        width: 8px;
+    }
+
+    &::-webkit-scrollbar-thumb
+    {
+        background: rgb(31,31,31);
+        border-radius: 8px;
+        background-image: -webkit-linear-gradient(-90deg,
+        transparent 0%,
+        transparent 5%,
+        #e87d9e 5%,
+        #e87d9e 15%,
+        transparent 15%,
+        transparent 20%,
+        #e87d9e 20%,
+        #e87d9e 30%,
+        transparent 30%,
+        transparent)
+    }
+}
+
 
 body {
     position: relative;
     width: 100vw;
-    height: 100vh;
     background-color: #000620;
 
     font-family: 'ImcreSoojin', sans-serif;
     font-weight: 400;
-    font-size: 14px;    
+    font-size: 14px    
 }
 
 body::after {
@@ -30,3 +61,4 @@ body::after {
 .display_none {
     display: none;
 }
+

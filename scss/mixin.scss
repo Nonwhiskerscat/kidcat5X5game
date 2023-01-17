@@ -1,2 +1,45 @@
 @import './style.scss';
 
+@mixin responsive($break) { // 지원 최소 크기 320px
+    @if $break == mobile-cat {
+        @media screen and (min-width: $break-mobile) {
+            @content;
+        }
+    }
+
+    @if $break == m500-cat {
+        @media screen and (min-width: $break-m500) {
+            @content;
+        }
+    }
+
+    @if $break == tablet-cat { // 중단점 768px
+        @media screen and (min-width: $break-tablet) {
+            @content;
+        }
+    }
+
+    @if $break == t1080-cat { // 중단점 1080px
+        @media screen and (min-width: $break-t1080) {
+            @content;
+        }
+    }
+
+    @else if $break == semi-cat { //중단점 1200px
+        @media screen and (min-width:$break-semipc) {
+            @content;
+        }
+    }
+}
+
+@mixin offset_letter_ani($letter, $tone) {
+    content: $letter;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+    color: $tone;
+
+    animation: offset_letter 2.2s ease-out 0s 1 normal forwards;
+}

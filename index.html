@@ -13,49 +13,91 @@
 	<link rel="stylesheet" href="./css/bighead.css">
 	<link rel="stylesheet" href="./css/vars.css">
 	<title>Tic-Tac-Toe</title>
-	<script src="./js/nyanMaker.js" defer></script>
+	<script src="./js/nyanMaker.js"></script>
+	<script src="./js/illustAni.js"></script>
 	<script src="./js/resetGame.js"></script>
 	<script src="./js/pushBoard.js"></script>
 	<script src="./js/checkPos.js"></script>
+	<script src="./js/svgCode.js"></script>
 	<script src="./js/catDraw.js"></script>
 	<script src="./js/comTurn.js"></script>
 	<script src="./js/catWinner.js"></script>
 	<script src="./js/gameLauncher.js" defer></script>
 </head>
 <body>
-	<section class="bighead" id="main_page">
-		<div class="intro_common">
-			<h1 class="bighead_title">KIDCAT</h1>
-			<h2 class="bghead_semi_title">5X5 TIC TAC TOE</h2>
-			<div class="btn_grp">
-				<button id="start_btn" class="button">게임시작!</button>
-				<button id="page_btn" class="button">개발자페이지!</button>
-			</div>
-		</div>
-		
+	<div class="under_320">
+        <div class="under_320_contents">
+            <h2>경고!</h2>
+            <div class="img_320">
+                <img src="./img/under_320.png" alt="#">
+            </div>
+            <p>해당 디바이스에서는<br>지원되지 않습니다.</p>
+        </div>
+    </div>
 
+	<section class="bighead" id="main_page">
+		<div class="nyan_zone">
+			<div class="intro_flex">
+				<div class="title_area">
+					<div class="h1_flex">
+						<h1 class="bighead_title">KIDCAT</h1>
+						<span class="svg_kitty"></span>
+					</div>
+		
+					<h2 class="bighead_semi_title">5X5 TIC TAC TOE</h2>
+					<div class="btn_grp">
+						<button id="start_btn" class="button">게임시작!</button>
+						<button id="kidcat_btn" class="button">개발자페이지!</button>
+					</div>
+				</div>
+	
+				<div class="illust_area">
+					<div class="illusts">
+						<img class="window" src="./img/window.png" alt="창문">
+						<img class="pf1" src="./img/photoframe1.png" alt="액자1">
+						<img class="pf2" src="./img/photoframe2.png" alt="액자2">
+						<img class="plant" src="./img/plant.png" alt="화분">
+						<img class="stools" src="./img/stool.png" alt="의자">
+						<div class="kitty_stools">
+							<img src="./img/withouthead.png" alt="고양이 머리 제외">
+							<img src="./img/kitty_head.png" alt="고양이 머리">
+						</div>
+						
+					</div>
+
+
+				</div>
+	
+			</div>
+			
+		</div>
 	</section>
 
 	<div class="display_none" id="cat_page">
-		<section class="bighead bighead_board">
-			<div class="kitty">
-				<div class="title">
-					<h2 id="cat-name" class="title_cat">Your Turn</h2>
-					<h2 id="com-name" class="display_none">Wait...</h2>
-					<h3 id="info-name"></h3>
+		<div class="nyan_zone">
+			<section class="bighead bighead_board">
+				<div class="kitty">
+					<div class="title">
+						<h2 id="cat-name" class="title_cat">Your Turn</h2>
+						<h2 id="com-name" class="display_none">Wait...</h2>
+						<h4 id="info-name"></h4>
+					</div>
+					<div class="main_table">
+	
+					</div>
+	
+					<div class="btn_grp">
+						<button id="retry_btn" class="button">다시하기</button>
+						<button id="giveup_btn" class="button">처음으로</button>
+					</div>
+	
 				</div>
-				<div class="main_table">
+			</section>
+		</div>
 
-				</div>
-
-				<div class="btn_grp">
-					<button id="retry_btn" class="button">다시하기</button>
-					<button id="giveup_btn" class="button">처음으로</button>
-				</div>
-
-			</div>
-		</section>
 	</div>
+
+	<div class="bottom"></div>
 
 </body>
 </html>
