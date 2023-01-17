@@ -13,7 +13,7 @@
 	<link rel="stylesheet" href="./css/bighead.css">
 	<link rel="stylesheet" href="./css/vars.css">
 	<title>Tic-Tac-Toe</title>
-	<script src="./js/nyanMaker.js"></script>
+	<script src="./js/nyanMaker.js" defer></script>
 	<script src="./js/illustAni.js"></script>
 	<script src="./js/resetGame.js"></script>
 	<script src="./js/pushBoard.js"></script>
@@ -78,9 +78,13 @@
 			<section class="bighead bighead_board">
 				<div class="kitty">
 					<div class="title">
+						<span class="svg_kitty2"></span>
 						<h2 id="cat-name" class="title_cat">Your Turn</h2>
 						<h2 id="com-name" class="display_none">Wait...</h2>
-						<h4 id="info-name"></h4>
+					</div>
+					<div class="semi_title">
+						<span class="svg_antenna"></span>
+						<p>Kidcat 5X5 게임에 오신 것을 환영합니다.</p>
 					</div>
 					<div class="main_table">
 	

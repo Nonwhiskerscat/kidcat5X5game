@@ -28,7 +28,7 @@
     left: 0;
   }
   100% {
-    left: -0.07em;
+    left: -0.1em;
   }
 }
 @keyframes opacity-btn {
@@ -67,6 +67,11 @@
   }
   100% {
     background-color: transparent;
+  }
+}
+@keyframes kitty_illust_ani {
+  100% {
+    transform: rotateX(0);
   }
 }
 @keyframes kitty_head_ani {

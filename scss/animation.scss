@@ -65,7 +65,7 @@
     }
 
     20% {
-        border-right: 0px solid $third;
+        border-right: 0px solid $personal;
     }
 
     40% {
@@ -73,11 +73,11 @@
     }
 
     60% {
-        border-right: 50px solid $third;
+        border-right: 50px solid $personal;
     }
 
     100% {
-        border-right: 0px solid $third;
+        border-right: 0px solid $personal;
         outline: 0px solid $second;
         right: 0;
     }

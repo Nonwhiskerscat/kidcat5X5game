@@ -108,10 +108,12 @@
 
                 @include responsive(tablet-cat) {
                     font-size: calc(24px + 4vw);
+                    margin-right: $tiny_margin_t;
                 }
         
                 @include responsive(semi-cat) {
                     font-size: 80px;
+                    margin-right: $tiny_margin_p;
                 }
     
                 &::after {
@@ -235,9 +237,8 @@
             .kitty_stools {
                 position: absolute;
                 bottom: 3%;
-                left: 50%;
+                left: 30%;
                 width: 50%;
-                transform: translateX(-40%);
                 z-index: 2;
 
 
@@ -258,12 +259,6 @@
             }
         }
     }
-}
-
-
-
-.bighead_board {
-    animation: opacity-title 1.7s ease-out 0s 1 normal forwards;
 }
 
 .btn_grp {

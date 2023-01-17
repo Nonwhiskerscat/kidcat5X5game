@@ -36,9 +36,13 @@ window.addEventListener('load', ()=> {
     nyanMaker(25);
 
     let svgKitty=document.querySelector('.svg_kitty');
+    let svgAntenna=document.querySelector('.svg_antenna');
+
 
     kittySvg(svgKitty);
-    
+    antennaSvg(svgAntenna);
+
+
     let startBtn = document.querySelector("#start_btn");
     let kidcatBtn = document.querySelector('#kidcat_btn');
     let nyanBtns = document.querySelectorAll(".nyan");
