@@ -51,6 +51,7 @@ window.addEventListener('load', ()=> {
     let cat_h2 = document.querySelector("#cat-name");
     let com_h2 = document.querySelector("#com-name");
     let cat_page = document.querySelector("#cat_page");
+    let notice = document.querySelector('.semi_title p')
     let isTaken;
 
 
@@ -80,6 +81,8 @@ window.addEventListener('load', ()=> {
                 gameTurn(catNyan, button);
             } else {
                 button.classList.add("nyan_error");
+                notice.innerHTML = "정신 차리고 하라냥!, 니가 유치원생이냥?";
+                
                 
                 setTimeout(() => {
                     button.classList.remove("nyan_error");
@@ -115,17 +118,20 @@ window.addEventListener('load', ()=> {
             btn.style.cursor = "pointer";
         }
 
-        cat_h2.innerHTML = "Your Turn";
-        com_h2.innerHTML = "Wait...";
+        cat_h2.innerHTML = "너 차례다냥!";
+        com_h2.innerHTML = "기다리라냥...";
+        notice.innerHTML = "Kidcat 5X5 게임에 오신 것을 환영한다냥.";
         cat_h2.classList.add("title_cat");
         cat_h2.classList.remove("display_none");
         com_h2.classList.add("display_none");
         com_h2.classList.remove("title_com");
+    
 
         resetGame(gameBoard);
     }
 
     function giveupGame(kitty) {
+        resetGame(gameBoard);
         kitty.classList.remove("cover");
         kitty.classList.add("end");
         kitty.classList.add("display_none"); 
@@ -211,17 +217,20 @@ window.addEventListener('load', ()=> {
             btn.setAttribute("disabled", "");
             btn.style.cursor = "auto";
         }
-        cat_h2.innerHTML = "IT'S A DRAW!";
+        cat_h2.innerHTML = "무승부다냥!";
+        notice.innerHTML = "좋은 승부였다냥, 하지만 다음에는 내가 이길거라냥!";
 
     }
 
     function endAlert(catWin) {
 
         if (catWin) {
-            cat_h2.innerHTML = "YOU WON!";
+            cat_h2.innerHTML = "너가 이겼다냥!";
+            notice.innerHTML = "분하다냥!, 고양이 상대로 이렇게 강해도 되는거다냥?";
 
         } else {
-            com_h2.innerHTML = "YOU LOST!";
+            com_h2.innerHTML = "너가 졌다냥!";
+            notice.innerHTML = "고양이한테 게임을 진다냥? 너무 어이없고 웃기다냥!";
         }
     }
 
@@ -233,6 +242,7 @@ window.addEventListener('load', ()=> {
                 btn.classList.remove("nyan_hover");
                 btn.setAttribute("disabled", "");
                 btn.style.cursor = "auto";
+                notice.innerHTML = "하... 저기 내가 놓으려고 했다냥, 비겁하게 이러기냥?";
             }
         }
         if (!pause) {
@@ -240,6 +250,7 @@ window.addEventListener('load', ()=> {
                 btn.classList.add("nyan_hover");
                 btn.removeAttribute("disabled", "");
                 btn.style.cursor = "pointer";
+                notice.innerHTML = "너 차례다냥, 어디 놓아도 나한테 안 된다냥!";
             }
         }
     }

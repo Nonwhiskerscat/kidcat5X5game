@@ -47,16 +47,16 @@
     outline: 0px solid #e87d9e;
   }
   20% {
-    border-right: 0px solid #fffa5e;
+    border-right: 0px solid #fcf8ac;
   }
   40% {
     outline: 100px solid #e87d9e;
   }
   60% {
-    border-right: 50px solid #fffa5e;
+    border-right: 50px solid #fcf8ac;
   }
   100% {
-    border-right: 0px solid #fffa5e;
+    border-right: 0px solid #fcf8ac;
     outline: 0px solid #e87d9e;
     right: 0;
   }
