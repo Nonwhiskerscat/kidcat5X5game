@@ -1,0 +1,16 @@
+@font-face {
+  font-family: "ImcreSoojin";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.3/ImcreSoojin.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "ImcreSoojin";
+  src: url(../fonts/PlayfairDisplay-SemiBold.ttf) format("truetype");
+  font-weight: 600;
+}
+@font-face {
+  font-family: "ImcreSoojin";
+  src: url(../fonts/ImcreSoojin-Regular.ttf) format("truetype");
+  font-weight: 400;
+}

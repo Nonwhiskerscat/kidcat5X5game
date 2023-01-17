@@ -1,0 +1,147 @@
+.cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 100%;
+    bottom: 0;
+    z-index: 1000;
+
+    background-color: #000620;
+    animation: cover-body 1.5s ease-in-out 0s 1 normal forwards;
+}
+
+
+
+.kitty {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .title {
+        display: flex;
+
+        margin-bottom: 1.7em;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 3em;
+        line-height: 38px;
+        text-align: center;
+
+        &_cat {
+            color: white;
+        }
+
+        &_comp {
+            color: #e87d9e;
+        }
+
+    }
+
+    .main_table {
+        width: 40%;
+        max-width: 500px;
+        min-width: 320px;
+        height: 40%;
+        max-height: 500px;
+        min-height: 320px;
+
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+
+        color: #fff;
+    }
+
+    &_button {
+        margin-top: 2.8em;
+        padding: 1rem 3rem;
+
+        font-style: normal;
+        font-weight: 400;
+        font-size: 1.6em;
+        line-height: 23px;
+        color: rgba(255, 255, 255, 0.48);
+
+        background-color: transparent;
+        border: 1px solid transparent;
+        border-radius: .5em;
+        cursor: pointer;
+        transition: background-color .1s linear, border .1s linear, color .1s linear;
+
+        &:hover {
+            border: 1px solid #ffffff7a;
+            color: #fff;
+            // color: #e87d9e;
+        }
+
+
+        &:active {
+            background-color: #39393938;
+        }
+
+    }
+
+
+}
+
+.nyan {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color .2s ease-out;
+    background-color: transparent;
+    border: 1px solid rgba($color: #ffffff, $alpha: 0.6);
+
+    &_hover:hover {
+        background-color: rgba(52, 51, 51, 0.484);
+    }
+
+    &_error {
+        animation: error .6s ease-in-out 0s 1 normal forwards;
+    }
+
+    &>span {
+        visibility: hidden;
+    }
+
+
+    &:nth-child(-n+5) {
+        border-top: 0px;
+    }
+
+    &:nth-child(5n+1) {
+        border-left: 0px;
+    }
+
+    &:nth-child(5n) {
+        border-right: 0px;
+    }
+
+    &:nth-child(n+21) {
+        border-bottom: 0px;
+    }
+
+}
+
+
+
+.icon-cross {
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    font-size: 4em;
+    color: #fcf8ac;
+    transform: translate(50%, -41%);
+}
+
+
+.icon-circle {
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    font-size: 4em;
+    color: #e87d9e;
+    transform: translate(50%, -41%);
+}

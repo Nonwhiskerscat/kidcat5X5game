@@ -1,0 +1,93 @@
+@import 'style.scss';
+
+@keyframes opacity-remove {
+    0% {
+        opacity: 0;
+
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+
+
+@keyframes opacity-title {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+
+
+@keyframes shadow {
+    0% {
+        left: 0;
+    }
+
+    70% {
+        left: 0;
+    }
+
+    100% {
+        left: -6px;
+    }
+}
+
+
+
+@keyframes opacity-btn {
+    0% {}
+    50% {
+        opacity: 0;
+        transform: translateY(45px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+@keyframes cover-body {
+    0% {
+        right: 100%;
+        outline: 0px solid $second;
+    }
+
+    20% {
+        border-right: 0px solid $third;
+    }
+
+    40% {
+        outline: 100px solid $second;
+    }
+
+    60% {
+        border-right: 50px solid $third;
+    }
+
+    100% {
+        border-right: 0px solid $third;
+        outline: 0px solid $second;
+        right: 0;
+    }
+}
+
+@keyframes error {
+    0% {
+        background-color: $error;
+    }
+    100% {
+        background-color: transparent;
+    }
+}

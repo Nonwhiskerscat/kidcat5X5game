@@ -1,0 +1,32 @@
+@import "./animation.scss";
+
+
+body {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000620;
+
+    font-family: 'ImcreSoojin', sans-serif;
+    font-weight: 400;
+    font-size: 14px;    
+}
+
+body::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1000;
+    background-repeat: no-repeat;
+    background-size: cover;
+    animation: opacity-remove .7s ease-in-out 0s 1 normal forwards;
+    opacity: 0;
+}
+
+
+.display_none {
+    display: none;
+}

@@ -1,0 +1,71 @@
+@import './style.scss';
+
+.bighead {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 100vw;
+    height: 100vh;
+}
+
+.bighead_board {
+    height: 100vh;
+    animation: opacity-title 1.7s ease-out 0s 1 normal forwards;
+}
+
+.bighead_title { 
+    position: relative;
+    margin-bottom: 7rem;
+    font-family: 'ImcreSoojin';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 7em;
+    color: $personal;
+
+    animation: opacity-title 1.5s ease-out 0s 1 normal forwards;
+}
+
+
+.bighead_title::after {
+    content: "KIDCAT";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+    color: #c9c48d;
+
+    animation: shadow 2.2s ease-out 0s 1 normal forwards;
+}
+
+
+.button {
+    padding: 1.3rem 2.3rem;
+    font-family: 'ImcreSoojin';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.5em;
+    line-height: 23px;
+    color: #fff;
+
+    opacity: 0;
+    background-color: $second;
+    border: none;
+    border-radius: .5em;
+    cursor: pointer;
+    transition: background-color .1s linear, transform .1s linear;
+    animation: opacity-btn 2s ease 0s 1 normal forwards;
+}
+
+
+.button:hover {
+    background-color: #df4878;
+    transition: all .1s linear;
+}
+
+
+.button:active {
+    background-color: $second;
+}
