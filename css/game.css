@@ -84,10 +84,8 @@
   fill: white;
 }
 .bighead_board .kitty .main_table {
-  width: 40%;
-  min-width: 320px;
-  height: 40%;
-  min-height: 320px;
+  width: 320px;
+  height: 320px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   margin-top: 60px;
@@ -189,6 +187,8 @@
 }
 .bighead_board .btn_grp_plus .button {
   width: 100% !important;
+  max-width: 320px !important;
+  margin: 0 auto !important;
 }
 @media screen and (min-width: 768px) {
   .bighead_board .btn_grp_plus .button {

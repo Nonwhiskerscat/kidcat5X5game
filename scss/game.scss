@@ -97,11 +97,9 @@
         }
     
         .main_table {
-            width: 40%;
-            min-width: 320px;
-    
-            height: 40%;
-            min-height: 320px;
+
+                width: 320px;
+                height: 320px;
     
             display: grid;
             grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
@@ -213,6 +211,9 @@
         
         .button {
             width: 100% !important;
+            max-width: 320px !important;
+            margin: 0 auto !important;
+
 
             @include responsive(tablet-cat) {
                 width: 230px !important;
