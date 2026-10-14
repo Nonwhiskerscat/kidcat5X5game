@@ -1,58 +1,49 @@
-function catWinner(kitty1, kitty2, catWin) {
-    let symbol = catWin ? "X" : "O";
+function catWinner(catWin) {
+    const board = GameState.board;
+    const symbol = catWin ? 'X' : 'O';
     let diagonalCountOne = 0;
     let diagonalCountSec = 0;
 
-    for (let i = 0; i < kitty1.length; i++) {
+    for (let i = 0; i < 5; i++) {
         let horizontalCount = 0;
         let verticalCount = 0;
 
-        for (let j = 0; j < kitty1.length; j++) {
-            if (kitty1[i][j] === symbol) {
+        for (let j = 0; j < 5; j++) {
+            if (board[i][j] === symbol) {
                 horizontalCount++;
-                kitty2.add(i, j);
+                GameState.winCells.push(i, j);
             }
         }
-        if (horizontalCount === 5) {
-            return true;
-        }
-        kitty2.clearAll();
+        if (horizontalCount === 5) return true;
+        GameState.winCells = [];
 
-        for (let j = 0; j < kitty1.length; j++) {
-            if (kitty1[j][i] === symbol) {
+        for (let j = 0; j < 5; j++) {
+            if (board[j][i] === symbol) {
                 verticalCount++;
-                kitty2.add(j, i);
+                GameState.winCells.push(j, i);
             }
         }
-        if (verticalCount === 5) {
-            return true;
-        }
-        kitty2.clearAll();
+        if (verticalCount === 5) return true;
+        GameState.winCells = [];
     }
 
-    for (let i = 0; i < kitty1.length; i++) {
-        if (kitty1[i][i] === symbol) {
+    for (let i = 0; i < 5; i++) {
+        if (board[i][i] === symbol) {
             diagonalCountOne++;
-            kitty2.add(i, i);
+            GameState.winCells.push(i, i);
         }
     }
-
-    if (diagonalCountOne === 5) {
-        return true;
-    }
-    kitty2.clearAll();
+    if (diagonalCountOne === 5) return true;
+    GameState.winCells = [];
 
     for (let i = 4, j = 0; i > -1; i--, j++) {
-        if (kitty1[i][j] === symbol) {
+        if (board[i][j] === symbol) {
             diagonalCountSec++;
-            kitty2.add(i, j);
+            GameState.winCells.push(i, j);
         }
     }
-    if (diagonalCountSec === 5) {
-        return true;
-    }
-
-    kitty2.clearAll();
+    if (diagonalCountSec === 5) return true;
+    GameState.winCells = [];
 
     return false;
 }

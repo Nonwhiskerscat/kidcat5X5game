@@ -1,14 +1,7 @@
-function catDraw(kitty) {
-    let emptyCells = 0;
-    for (let i = 0; i < kitty.length; i++) {
-        for (let j = 0; j < kitty.length; j++) {
-            if (kitty[i][j] === ' ') {
-                emptyCells++;
-            }
-        }
-    }
-    if (emptyCells !== 0) {
-        return false;
-    }
+function catDraw() {
+    const board = GameState.board;
+    for (let r = 0; r < 5; r++)
+        for (let c = 0; c < 5; c++)
+            if (board[r][c] === ' ') return false;
     return true;
 }
