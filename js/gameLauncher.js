@@ -19,7 +19,16 @@ let cat_h2 = document.querySelector("#cat-name");
 let com_h2 = document.querySelector("#com-name");
 let cat_page = document.querySelector("#cat_page");
 let notice = document.querySelector('.semi_title p');
+let diffBtns = document.querySelectorAll('.diff_btn');
 
+
+for (const btn of diffBtns) {
+    btn.addEventListener('click', function() {
+        for (const b of diffBtns) b.classList.remove('diff_active');
+        this.classList.add('diff_active');
+        GameState.difficulty = this.dataset.diff;
+    });
+}
 
 startBtn.addEventListener('click', () => {
     settingGame(cat_page);

@@ -1,5 +1,6 @@
 function comTurn() {
     const board = GameState.board;
+    const difficulty = GameState.difficulty;
 
     // 빈 칸 목록 수집
     const emptyCells = [];
@@ -8,6 +9,72 @@ function comTurn() {
             if (board[r][c] === ' ') emptyCells.push([r, c]);
 
     if (emptyCells.length === 0) return null;
+
+    // 해당 심볼이 아직 이길 수 있는 라인이 하나라도 있는지 확인
+    function canWin(symbol) {
+        const opp = symbol === 'O' ? 'X' : 'O';
+        for (let i = 0; i < 5; i++) {
+            if (!board[i].some(cell => cell === opp)) return true;
+            if (!board.some(row => row[i] === opp)) return true;
+        }
+        if (![0,1,2,3,4].some(i => board[i][i] === opp)) return true;
+        if (![0,1,2,3,4].some(i => board[i][4-i] === opp)) return true;
+        return false;
+    }
+
+    // 난이도 무관: 양쪽 모두 이길 수 없으면 무승부
+    if (!canWin('O') && !canWin('X')) return null;
+
+    // 쉬워: 즉시 이기기 + 4개 차단만 + 자기 라인 위주 단순 점수
+    if (difficulty === 'easy') {
+        function checkWinEasy(symbol) {
+            for (let i = 0; i < 5; i++) {
+                if (board[i].every(cell => cell === symbol)) return true;
+                if (board.every(row => row[i] === symbol)) return true;
+            }
+            if ([0,1,2,3,4].every(i => board[i][i] === symbol)) return true;
+            if ([0,1,2,3,4].every(i => board[i][4-i] === symbol)) return true;
+            return false;
+        }
+        // 즉시 이기기
+        for (const [r, c] of emptyCells) {
+            board[r][c] = 'O';
+            if (checkWinEasy('O')) { return r * 5 + c; }
+            board[r][c] = ' ';
+        }
+        // 4개 연속만 차단
+        function countInLine(line, symbol) {
+            return line.filter(cell => cell === symbol).length;
+        }
+        for (const [r, c] of emptyCells) {
+            const row = board[r];
+            const col = board.map(row => row[c]);
+            const diag = r === c ? [0,1,2,3,4].map(i => board[i][i]) : null;
+            const anti = r + c === 4 ? [0,1,2,3,4].map(i => board[i][4-i]) : null;
+            const lines = [row, col, diag, anti].filter(Boolean);
+            const isBlockNeeded = lines.some(line =>
+                countInLine(line, 'X') === 4 && countInLine(line, 'O') === 0
+            );
+            if (isBlockNeeded) {
+                board[r][c] = 'O';
+                return r * 5 + c;
+            }
+        }
+        // 자기 라인 위주 단순 점수 (수비 고려 없음)
+        let bestScore = -1;
+        let bestCell = emptyCells[0];
+        for (const [r, c] of emptyCells) {
+            let score = 0;
+            score += board[r].filter(cell => cell === 'O').length;
+            score += board.map(row => row[c]).filter(cell => cell === 'O').length;
+            if (r === c) score += [0,1,2,3,4].filter(i => board[i][i] === 'O').length;
+            if (r + c === 4) score += [0,1,2,3,4].filter(i => board[i][4-i] === 'O').length;
+            if (score > bestScore) { bestScore = score; bestCell = [r, c]; }
+        }
+        const [r, c] = bestCell;
+        board[r][c] = 'O';
+        return r * 5 + c;
+    }
 
     // 전체 라인 완성 여부 확인 (GameState 건드리지 않는 내부 함수)
     function checkWin(symbol) {
@@ -20,10 +87,11 @@ function comTurn() {
         return false;
     }
 
+    // 무난해 + 미친냥이: 즉시 이기기 + 차단
     // 1순위: 내가 이길 수 있으면 즉시 이기기
     for (const [r, c] of emptyCells) {
         board[r][c] = 'O';
-        if (checkWin('O')) { board[r][c] = ' '; return r * 5 + c; }
+        if (checkWin('O')) { return r * 5 + c; }
         board[r][c] = ' ';
     }
 
@@ -34,28 +102,23 @@ function comTurn() {
         board[r][c] = ' ';
     }
 
-    // 3순위: 각 빈 칸의 전략적 점수 계산
-    // 해당 셀이 속한 라인(행/열/대각선)에서 내 심볼 개수가 많을수록 고점
-    // 상대가 이미 해당 라인에 있으면 그 라인은 포기 (0점)
+    // 미친냥이: 전략적 점수 계산
     function scoreCell(r, c, symbol) {
         const opp = symbol === 'O' ? 'X' : 'O';
         let score = 0;
 
-        // 행 점수
         const rowOpp = board[r].filter(cell => cell === opp).length;
         if (rowOpp === 0) {
             const rowMy = board[r].filter(cell => cell === symbol).length;
             score += Math.pow(10, rowMy);
         }
 
-        // 열 점수
         const colOpp = board.filter(row => row[c] === opp).length;
         if (colOpp === 0) {
             const colMy = board.filter(row => row[c] === symbol).length;
             score += Math.pow(10, colMy);
         }
 
-        // 주 대각선 점수 (r === c 인 셀만 해당)
         if (r === c) {
             const diagOpp = [0,1,2,3,4].filter(i => board[i][i] === opp).length;
             if (diagOpp === 0) {
@@ -64,7 +127,6 @@ function comTurn() {
             }
         }
 
-        // 반 대각선 점수 (r + c === 4 인 셀만 해당)
         if (r + c === 4) {
             const antiOpp = [0,1,2,3,4].filter(i => board[i][4-i] === opp).length;
             if (antiOpp === 0) {
@@ -80,7 +142,6 @@ function comTurn() {
     let bestCell = emptyCells[0];
 
     for (const [r, c] of emptyCells) {
-        // 공격 점수 1.1배 우선 (수비보다 공격 약간 우선)
         const total = scoreCell(r, c, 'O') * 1.1 + scoreCell(r, c, 'X');
         if (total > bestScore) {
             bestScore = total;

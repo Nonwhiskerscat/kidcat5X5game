@@ -242,6 +242,41 @@
   animation: kitty_head_ani 5s infinite linear;
 }
 
+.difficulty_grp {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 30px;
+  animation: opacity-btn 2s ease 0s 1 normal forwards;
+  opacity: 0;
+}
+
+.diff_btn {
+  font-family: "ImcreSoojin";
+  font-size: calc(10px + 1.2vw);
+  color: rgba(252, 248, 172, 0.5);
+  background-color: transparent;
+  border: 2px solid rgba(252, 248, 172, 0.3);
+  border-radius: 1000px;
+  padding: 0.3em 0.9em;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+@media screen and (min-width: 1400px) {
+  .diff_btn {
+    font-size: 20px;
+  }
+}
+.diff_btn:hover {
+  color: #fcf8ac;
+  border-color: rgba(252, 248, 172, 0.7);
+}
+.diff_btn.diff_active {
+  color: #000620;
+  background-color: #fcf8ac;
+  border-color: #fcf8ac;
+}
+
 .btn_grp {
   display: flex;
   flex-direction: column;
